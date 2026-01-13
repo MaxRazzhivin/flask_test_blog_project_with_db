@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Подключение к PostgreSQL через DATABASE_URL из Render
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://user:pass@host:port/dbname'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flask_and_postgresql_user:qRCj6o4c9aIfNWQ6IgteN1IYDT7wRjFw@dpg-d5iu7e14tr6s73dvta30-a/flask_and_postgresql'
 
 db = SQLAlchemy(app)
 

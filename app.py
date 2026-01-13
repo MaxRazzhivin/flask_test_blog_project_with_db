@@ -6,6 +6,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
 
+with app.app_context():
+    db.create_all()
+
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -85,10 +88,6 @@ def create_article():
             return 'При добавлении статьи произошла ошибка'
     else:
         return render_template('create-article.html')
-
-# @app.route('/user/<string:name>/<int:id>')
-# def user(name, id):
-#     return "User page " + name + " - " + str(id)
 
 
 if __name__ == '__main__':

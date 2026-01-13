@@ -10,6 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
     'sqlite:///' + os.path.join(basedir, 'instance', 'blog.db')
 db = SQLAlchemy(app)
 
+os.makedirs(os.path.join(basedir, 'instance'), exist_ok=True)
+
 with app.app_context():
     db.create_all()
 
